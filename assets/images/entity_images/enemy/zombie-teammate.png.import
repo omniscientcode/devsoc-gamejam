@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://burfxcyho7t3e"
-path="res://.godot/imported/snake-bahvioural.png-8c637df4e0b7aaf2d165ce2700942fb5.ctex"
+uid="uid://cgbk3ctqjrgo2"
+path="res://.godot/imported/zombie-teammate.png-67df37b0b5107fe6403e03bcba2c2e6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New Assets/snake-bahvioural.png"
-dest_files=["res://.godot/imported/snake-bahvioural.png-8c637df4e0b7aaf2d165ce2700942fb5.ctex"]
+source_file="res://assets/images/entity_images/enemy/zombie-teammate.png"
+dest_files=["res://.godot/imported/zombie-teammate.png-67df37b0b5107fe6403e03bcba2c2e6d.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bevqlol0wbw4u"
-path="res://.godot/imported/tuition-fees.png-6ff390e07681de9a76a5dfc1070a6ef1.ctex"
+path="res://.godot/imported/tuition-fees.png-0c91f1501d86d2d6dbbd4f0d7fd80608.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New Assets/tuition-fees.png"
-dest_files=["res://.godot/imported/tuition-fees.png-6ff390e07681de9a76a5dfc1070a6ef1.ctex"]
+source_file="res://assets/images/entity_images/enemy/tuition-fees.png"
+dest_files=["res://.godot/imported/tuition-fees.png-0c91f1501d86d2d6dbbd4f0d7fd80608.ctex"]
 
 [params]
 
