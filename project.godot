@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gamejam"
-run/main_scene="uid://dqeobvwk6srf2"
+run/main_scene="uid://dhkpc10i6g0rm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,9 +21,8 @@ GlobalVariables="*res://world/global_variables.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
-window/size/mode=2
+window/size/viewport_width=720
+window/size/viewport_height=1280
 window/vsync/vsync_mode=0
 
 [input]
