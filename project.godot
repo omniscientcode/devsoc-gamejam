@@ -62,6 +62,12 @@ move_jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="WORLD"
+2d_physics/layer_2="ENEMIES"
+2d_physics/layer_3="PLAYER"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

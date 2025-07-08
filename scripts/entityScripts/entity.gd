@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 class_name entity
 
-@export var HP = 100.0; 
+@export var CURRENT_HP = 100.0
+@export var MAX_HP = 100.0 
 @export var SPEED = 10.0
 @export var ACCELERATION = 100
 
@@ -42,8 +43,8 @@ func attackEnemies():
 
 func damage(damageTaken):
 	var actualDamageTaken = max(damageTaken * (1 - DAMAGE_RESISTANCE), 0.0)
-	HP -= actualDamageTaken
-	if HP <= 0:
+	CURRENT_HP -= actualDamageTaken
+	if CURRENT_HP <= 0:
 		death()
 
 func death():

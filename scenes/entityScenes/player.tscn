@@ -156,6 +156,8 @@ size = Vector2(56.5, 27)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1000
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_abrql")
 
 [node name="CollisionDetection" type="CollisionShape2D" parent="."]
@@ -177,7 +179,15 @@ autostart = true
 
 [node name="attackRange" type="Area2D" parent="."]
 unique_name_in_owner = true
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
 position = Vector2(4.75, 0)
 shape = SubResource("RectangleShape2D_sglur")
+
+[node name="respawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]
