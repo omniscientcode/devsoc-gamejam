@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceckbbc2tpj1h"]
+
+[ext_resource type="Texture2D" uid="uid://c0qvanxqi8ehu" path="res://assets/images/misc/sword-icon.png" id="1_5j0vk"]
+[ext_resource type="FontFile" uid="uid://bts3be13egtip" path="res://scenes/ConnectionII.otf" id="2_6byrh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6byrh"]
+bg_color = Color(0.980392, 0.576471, 0.113725, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1uov"]
+bg_color = Color(0.996078, 0.788235, 0.427451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_5j0vk"]
+font = ExtResource("2_6byrh")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e56t"]
+bg_color = Color(0, 0.65098, 0.32549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_o1uov"]
+font = ExtResource("2_6byrh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3e56t"]
+font = ExtResource("2_6byrh")
+font_color = Color(0, 0, 0, 1)
+
+[node name="SkillBox" type="Control"]
+layout_mode = 3
+offset_left = -320.0
+offset_top = -80.0
+offset_right = 320.0
+offset_bottom = 80.0
+
+[node name="SkillBox" type="Panel" parent="."]
+offset_right = 640.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6byrh")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 144.0
+offset_top = 56.0
+offset_right = 504.0
+offset_bottom = 116.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o1uov")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(72, 80)
+scale = Vector2(0.15625, 0.144531)
+texture = ExtResource("1_5j0vk")
+
+[node name="Skill Name" type="Label" parent="."]
+texture_filter = 1
+offset_left = 144.0
+offset_top = 24.0
+offset_right = 248.0
+offset_bottom = 49.0
+text = "HD WAM"
+label_settings = SubResource("LabelSettings_5j0vk")
+
+[node name="Level" type="Label" parent="."]
+texture_filter = 1
+offset_left = 408.0
+offset_top = 24.0
+offset_right = 528.0
+offset_bottom = 69.0
+text = "LEVEL X"
+label_settings = SubResource("LabelSettings_5j0vk")
+
+[node name="Level2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 408.0
+offset_top = 24.0
+offset_right = 528.0
+offset_bottom = 69.0
+text = "LEVEL X"
+label_settings = SubResource("LabelSettings_5j0vk")
+
+[node name="Upgrade Button" type="Panel" parent="."]
+offset_left = 536.0
+offset_top = 56.0
+offset_right = 616.0
+offset_bottom = 116.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3e56t")
+
+[node name="Label" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 74.0
+offset_bottom = 47.0
+text = "UPGRADE"
+label_settings = SubResource("LabelSettings_o1uov")
+
+[node name="Cost" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 42.0
+offset_bottom = 95.0
+text = "COST:"
+label_settings = SubResource("LabelSettings_3e56t")
+
+[node name="Cost2" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 72.0
+offset_right = 90.0
+offset_bottom = 95.0
+text = "15 P"
+label_settings = SubResource("LabelSettings_3e56t")
