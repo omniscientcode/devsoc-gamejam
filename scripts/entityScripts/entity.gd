@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name entity
 
 @export var HP = 100.0; 
-@export var SPEED = 100.0
+@export var SPEED = 10.0
 @export var ACCELERATION = 100
 
 @export var ATTACK = 20.0

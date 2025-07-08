@@ -8,12 +8,14 @@ func _physics_process(delta: float) -> void:
 	attackCheck()
 	if enemy_array.size() == 0:
 		attack_timer.stop()
-		moveCharacter()
+		moveCharacter(delta)
+	if !is_on_floor():
+		velocity.y += 1000 * delta
 
 # move character function
-func	 moveCharacter():
+func	 moveCharacter(delta):
 	animated_sprite_2d.play("move")
-	velocity =  velocity.move_toward(Vector2.RIGHT * SPEED, ACCELERATION)
+	velocity =  velocity.move_toward(Vector2.RIGHT * SPEED, delta * ACCELERATION)
 	move_and_slide()
 	
 
