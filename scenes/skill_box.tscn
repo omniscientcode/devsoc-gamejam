@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceckbbc2tpj1h"]
+[gd_scene load_steps=11 format=3 uid="uid://ceckbbc2tpj1h"]
 
 [ext_resource type="Texture2D" uid="uid://c0qvanxqi8ehu" path="res://assets/images/misc/sword-icon.png" id="1_5j0vk"]
-[ext_resource type="FontFile" uid="uid://bts3be13egtip" path="res://scenes/ConnectionII.otf" id="2_6byrh"]
+[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/Poco.ttf" id="1_o1uov"]
+[ext_resource type="Script" uid="uid://jmfqqxdbjbo5" path="res://scripts/ui/skillbox.gd" id="3_o1uov"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6byrh"]
 bg_color = Color(0.980392, 0.576471, 0.113725, 1)
@@ -17,9 +18,14 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_sqi4d"]
+font = ExtResource("1_o1uov")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_5j0vk"]
-font = ExtResource("2_6byrh")
-font_size = 24
+font = ExtResource("1_o1uov")
+font_size = 48
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e56t"]
@@ -30,10 +36,11 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_o1uov"]
-font = ExtResource("2_6byrh")
+font = ExtResource("1_o1uov")
 
 [sub_resource type="LabelSettings" id="LabelSettings_3e56t"]
-font = ExtResource("2_6byrh")
+font = ExtResource("1_o1uov")
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [node name="SkillBox" type="Control"]
@@ -53,10 +60,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6byrh")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 144.0
-offset_top = 56.0
+offset_top = 72.0
 offset_right = 504.0
-offset_bottom = 116.0
+offset_bottom = 132.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o1uov")
+
+[node name="Description" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 384.0
+offset_bottom = 64.0
+text = "DEALS 0 (+ 10) DMG"
+label_settings = SubResource("LabelSettings_sqi4d")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(72, 80)
@@ -67,62 +82,69 @@ texture = ExtResource("1_5j0vk")
 texture_filter = 1
 layout_mode = 0
 offset_left = 144.0
-offset_top = 24.0
-offset_right = 248.0
-offset_bottom = 49.0
+offset_right = 298.0
+offset_bottom = 58.0
 text = "HD WAM"
+label_settings = SubResource("LabelSettings_5j0vk")
+
+[node name="LevelWord" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 360.0
+offset_right = 470.0
+offset_bottom = 58.0
+text = "LEVEL"
 label_settings = SubResource("LabelSettings_5j0vk")
 
 [node name="Level" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 408.0
-offset_top = 24.0
-offset_right = 528.0
-offset_bottom = 69.0
-text = "LEVEL X"
-label_settings = SubResource("LabelSettings_5j0vk")
-
-[node name="Level2" type="Label" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 408.0
-offset_top = 24.0
-offset_right = 528.0
-offset_bottom = 69.0
-text = "LEVEL X"
+offset_left = 480.0
+offset_right = 504.0
+offset_bottom = 58.0
+text = "X"
 label_settings = SubResource("LabelSettings_5j0vk")
 
 [node name="Upgrade Button" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 536.0
+offset_left = 528.0
 offset_top = 56.0
 offset_right = 616.0
 offset_bottom = 116.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3e56t")
+script = ExtResource("3_o1uov")
 
 [node name="Label" type="Label" parent="Upgrade Button"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 24.0
-offset_right = 74.0
-offset_bottom = 47.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 35.3333
 text = "UPGRADE"
 label_settings = SubResource("LabelSettings_o1uov")
 
 [node name="Cost" type="Label" parent="Upgrade Button"]
 layout_mode = 0
-offset_top = 72.0
-offset_right = 42.0
-offset_bottom = 95.0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 85.0
 text = "COST:"
 label_settings = SubResource("LabelSettings_3e56t")
 
 [node name="Cost2" type="Label" parent="Upgrade Button"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 72.0
-offset_right = 90.0
-offset_bottom = 95.0
-text = "15 P"
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 85.0
+text = "15C"
 label_settings = SubResource("LabelSettings_3e56t")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+layout_mode = 0
+offset_left = 528.0
+offset_top = 56.0
+offset_right = 616.0
+offset_bottom = 120.0

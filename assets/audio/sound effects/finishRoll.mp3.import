@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cq5xbm7vep8qc"
+path="res://.godot/imported/finishRoll.mp3-76d7f692370bb453a92fa633f68f3b51.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/finishRoll.mp3"
+dest_files=["res://.godot/imported/finishRoll.mp3-76d7f692370bb453a92fa633f68f3b51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

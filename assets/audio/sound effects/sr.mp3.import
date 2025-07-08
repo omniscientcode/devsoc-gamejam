@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbia7nc3mayas"
+path="res://.godot/imported/sr.mp3-0bd0dfc73f04cd691471717e9d84e6aa.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/sr.mp3"
+dest_files=["res://.godot/imported/sr.mp3-0bd0dfc73f04cd691471717e9d84e6aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -5,3 +5,4 @@ var player_dead = false
 var coins = 0
 var gems = 0
 var gacha_stat_increase = 0.0
+var skill_level = 0
