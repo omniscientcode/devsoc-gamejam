@@ -26,22 +26,14 @@ func _ready() -> void:
 func _connect_processes() -> void:
 	if not attack_timer.is_connected("timeout", Callable(self, "_on_attack_timer_timeout")):
 		attack_timer.connect("timeout", Callable(self, "_on_attack_timer_timeout"))
-	if not attack_range.is_connected("area_entered", Callable(self, "_on_attack_range_area_entered")):
-		attack_range.connect("area_entered", Callable(self, "_on_attack_range_area_entered"))
-	if not attack_range.is_connected("area_exited", Callable(self, "_on_attack_range_area_exited")):
-		attack_range.connect("area_exited", Callable(self, "_on_attack_range_area_exited"))
+	if not attack_range.is_connected("body_entered", Callable(self, "_on_attack_range_body_entered")):
+		attack_range.connect("body_entered", Callable(self, "_on_attack_range_body_entered"))
+	if not attack_range.is_connected("body_exited", Callable(self, "_on_attack_range_body_exited")):
+		attack_range.connect("body_exited", Callable(self, "_on_attack_range_body_exited"))
+
 
 func _physics_process(_delta: float) -> void: 
-	attackCheck()
-
-# Checks if can attack
-func attackCheck():
-	if (enemy_array.size() > 0 && attack_timer.is_stopped()):
-		animated_sprite_2d.play("attack")
-		attackEnemies()
-		attack_timer.start()
-	else:
-		attack_timer.stop()
+	pass
 
 # attack all enemies
 func attackEnemies():
@@ -57,16 +49,19 @@ func damage(damageTaken):
 func death():
 	GlobalVariables.enemies_defeated += 1
 	animated_sprite_2d.play("death")
+	call_deferred("queue_free")
 
 # On attack timer timeout, attack enemies
 func _on_attack_timer_timeout() -> void:
-	attackEnemies()
+	if (enemy_array.size() > 0):
+		animated_sprite_2d.play("attack")
+		attackEnemies()
 	attack_timer.start()
 
 # If enemy enters, add to attack array
-func _on_attack_range_area_entered(_area: Area2D) -> void:
+func _on_attack_range_body_entered(body: Node2D) -> void:
 	pass
 
 # If enemy dies, remove from array
-func _on_attack_range_area_exited(_area: Area2D) -> void:
+func _on_attack_range_body_exited(body: Node2D) -> void:
 	pass

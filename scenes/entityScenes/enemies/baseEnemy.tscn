@@ -1,4 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwxe4u1u6j03i"]
+[gd_scene load_steps=5 format=3 uid="uid://dwxe4u1u6j03i"]
+
+[ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_28csm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ect44"]
+size = Vector2(25.25, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6m77h"]
 animations = [{
@@ -26,7 +31,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs3lu"]
 size = Vector2(41.5, 27)
 
-[node name="BaseEnemy" type="Node2D"]
+[node name="CharacterBody" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_28csm")
+
+[node name="CollisionDetection" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ect44")
+debug_color = Color(0, 0.643137, 0.298039, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -36,6 +46,7 @@ metadata/_edit_lock_ = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 autostart = true
 
 [node name="attackRange" type="Area2D" parent="."]
