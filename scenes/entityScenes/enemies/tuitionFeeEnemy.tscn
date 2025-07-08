@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgus8tr2ogmox"]
+
+[ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_mgh5h"]
+[ext_resource type="Texture2D" uid="uid://bevqlol0wbw4u" path="res://assets/images/entity_images/enemy/tuition-fees.png" id="2_gub25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ect44"]
+size = Vector2(25.25, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka7b0"]
+atlas = ExtResource("2_gub25")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_778c4"]
+atlas = ExtResource("2_gub25")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6m77h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_778c4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_778c4")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_778c4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_778c4")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs3lu"]
+size = Vector2(41.5, 27)
+
+[node name="CharacterBody" type="CharacterBody2D" groups=["enemy"]]
+z_index = 500
+script = ExtResource("1_mgh5h")
+
+[node name="CollisionDetection" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ect44")
+debug_color = Color(0, 0.64349, 0.299054, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_6m77h")
+animation = &"death"
+autoplay = "idle"
+metadata/_edit_lock_ = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="attackRange" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
+shape = SubResource("RectangleShape2D_cs3lu")
