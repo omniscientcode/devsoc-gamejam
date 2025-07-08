@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhkpc10i6g0rm"]
+[gd_scene load_steps=12 format=3 uid="uid://dhkpc10i6g0rm"]
 
 [ext_resource type="PackedScene" uid="uid://cula4bmg5bhx" path="res://scenes/entityScenes/enemySpawner.tscn" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://ba5pulvbctqtv" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b4pjdojv3gi2s" path="res://scenes/entityScenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://cjkgxf7d2qvvk" path="res://assets/images/bg/unsw-background.png.png" id="3_lnu2h"]
-[ext_resource type="PackedScene" path="res://scenes/skill_box.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ceckbbc2tpj1h" path="res://scenes/skill_box.tscn" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://drjflxyyfqy0r" path="res://assets/images/misc/quest icon.png" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://mkx640imescd" path="res://scenes/ui/quest_menu_page.tscn" id="7_0tnpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
 distance = -2.0
@@ -22,6 +25,7 @@ border_width_bottom = 8
 border_color = Color(0.980392, 0.576471, 0.113725, 1)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(144, 456)
@@ -82,8 +86,23 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lnu2h")
 position = Vector2(360, 640)
 
 [node name="SkillBox" parent="." instance=ExtResource("4_lbhrr")]
-anchors_preset = 0
 offset_left = 40.0
 offset_top = 608.0
 offset_right = 680.0
 offset_bottom = 768.0
+
+[node name="QuestMenuButton" type="TextureButton" parent="."]
+offset_left = 560.0
+offset_top = 152.0
+offset_right = 600.0
+offset_bottom = 192.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("6_gee14")
+
+[node name="QuestMenuPage" parent="." instance=ExtResource("7_0tnpc")]
+visible = false
+offset_left = 437.0
+offset_top = 230.0
+offset_right = 477.0
+offset_bottom = 270.0
+scale = Vector2(5, 5)

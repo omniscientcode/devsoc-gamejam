@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://mkx640imescd"]
+
+[ext_resource type="Texture2D" uid="uid://blcun8gn4n8kq" path="res://assets/Edward's Old Assets/Textures/AttackTextures/EnemyAttackTextures/firestorm..png" id="1_juavm"]
+
+[node name="QuestMenuPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 152.0
+offset_right = 600.0
+offset_bottom = 192.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_juavm")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh48tlcnp04fk"]
+
+[ext_resource type="Texture2D" uid="uid://drjflxyyfqy0r" path="res://assets/images/misc/quest icon.png" id="1_fempp"]
+
+[node name="QuestMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_fempp")
+stretch_mode = 0
