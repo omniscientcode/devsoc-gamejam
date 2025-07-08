@@ -7,6 +7,10 @@
 atlas = ExtResource("1_5ckdq")
 region = Rect2(0, 0, 180, 270)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_73l0w"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(720, 0, 180, 270)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvtck"]
 atlas = ExtResource("1_5ckdq")
 region = Rect2(0, 0, 180, 270)
@@ -23,10 +27,6 @@ region = Rect2(360, 0, 180, 270)
 atlas = ExtResource("1_5ckdq")
 region = Rect2(540, 0, 180, 270)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_73l0w"]
-atlas = ExtResource("1_5ckdq")
-region = Rect2(720, 0, 180, 270)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_q5xra"]
 animations = [{
 "frames": [{
@@ -35,6 +35,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73l0w")
+}],
+"loop": true,
+"name": &"pull_end",
 "speed": 5.0
 }, {
 "frames": [{
@@ -55,20 +63,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"pulling",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [node name="gacha" type="Node2D"]
 script = ExtResource("1_7y0v6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(120, -214)
-zoom = Vector2(3, 3)
-
 [node name="screenImage" type="AnimatedSprite2D" parent="."]
-position = Vector2(120, -213.5)
-scale = Vector2(1.33333, 1.58148)
+position = Vector2(120, -214)
+scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_q5xra")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.281932
+frame_progress = 0.954966
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(120, -214)
+zoom = Vector2(3, 3)
