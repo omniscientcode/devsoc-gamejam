@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co5qrbb7v5xbe"
+path="res://.godot/imported/ssrPull.mp3-dd2f521ae5cf71ceceb7113f74f5e120.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/ssrPull.mp3"
+dest_files=["res://.godot/imported/ssrPull.mp3-dd2f521ae5cf71ceceb7113f74f5e120.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
