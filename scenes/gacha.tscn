@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b21beu5ie154h"]
+[gd_scene load_steps=11 format=3 uid="uid://b21beu5ie154h"]
 
 [ext_resource type="Texture2D" uid="uid://7pkqjletir20" path="res://assets/images/bg/door open-Sheet.png" id="1_5ckdq"]
 [ext_resource type="Script" uid="uid://fubl4oluvsa6" path="res://scripts/gacha system/gacha.gd" id="1_7y0v6"]
+[ext_resource type="Theme" uid="uid://he0hkwkofuis" path="res://assets/resources/default.tres" id="3_pvtck"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7y0v6"]
 atlas = ExtResource("1_5ckdq")
@@ -69,14 +70,31 @@ animations = [{
 [node name="gacha" type="Node2D"]
 script = ExtResource("1_7y0v6")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
 [node name="screenImage" type="AnimatedSprite2D" parent="."]
-position = Vector2(120, -214)
-scale = Vector2(1.6, 1.6)
+position = Vector2(361, 641)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_q5xra")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.954966
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(120, -214)
-zoom = Vector2(3, 3)
+[node name="Button" type="Button" parent="."]
+offset_left = 140.0
+offset_top = 999.0
+offset_right = 585.0
+offset_bottom = 1138.0
+theme = ExtResource("3_pvtck")
+theme_override_font_sizes/font_size = 50
+text = "PULL"
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 313.0
+offset_top = 558.0
+offset_right = 423.0
+offset_bottom = 643.0
+text = "PULLED ITEM"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
