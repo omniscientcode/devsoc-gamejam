@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwxe4u1u6j03i"]
+[gd_scene load_steps=7 format=3 uid="uid://dwxe4u1u6j03i"]
 
 [ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_28csm"]
+[ext_resource type="AudioStream" uid="uid://b1hc1rtwv3tqh" path="res://assets/audio/sound effects/death.wav" id="2_3ited"]
+[ext_resource type="AudioStream" uid="uid://blnbaswo08q4v" path="res://assets/audio/sound effects/enemyHurt.wav" id="2_6g5m4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ect44"]
 size = Vector2(25.25, 27)
@@ -35,6 +37,10 @@ size = Vector2(41.5, 27)
 collision_layer = 6
 script = ExtResource("1_28csm")
 
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_3ited")
+
 [node name="CollisionDetection" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ect44")
 debug_color = Color(0, 0.643137, 0.298039, 0.419608)
@@ -57,3 +63,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
 shape = SubResource("RectangleShape2D_cs3lu")
+
+[node name="hurtSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_6g5m4")

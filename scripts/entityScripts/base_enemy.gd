@@ -4,6 +4,7 @@ var COINS_ON_DEATH = 10
 
 func _ready() -> void:
 	_connect_processes()
+	CURRENT_HP = MAX_HP
 	self.add_to_group("enemy")
 
 func _physics_process(delta: float) -> void: 
@@ -31,3 +32,7 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if enemy_array.has(body):
 		enemy_array.erase(body)
+
+
+func _on_death_sound_finished() -> void:
+	pass # Replace with function body.
