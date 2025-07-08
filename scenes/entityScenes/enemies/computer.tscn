@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpa5egatsame2"]
+
+[ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_5uwge"]
+[ext_resource type="AudioStream" uid="uid://b1hc1rtwv3tqh" path="res://assets/audio/sound effects/death.wav" id="2_vtis0"]
+[ext_resource type="Texture2D" uid="uid://lhllghno37oh" path="res://assets/images/entity_images/enemy/computer-Sheet.png" id="3_vtis0"]
+[ext_resource type="AudioStream" uid="uid://blnbaswo08q4v" path="res://assets/audio/sound effects/enemyHurt.wav" id="3_xvn1q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ect44"]
+size = Vector2(28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvn1q"]
+atlas = ExtResource("3_vtis0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6ocp"]
+atlas = ExtResource("3_vtis0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6m77h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvn1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ocp")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvn1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ocp")
+}],
+"loop": true,
+"name": &"death",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvn1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ocp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvn1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ocp")
+}],
+"loop": true,
+"name": &"move",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs3lu"]
+size = Vector2(54, 27)
+
+[node name="CharacterBody" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 6
+script = ExtResource("1_5uwge")
+MAX_HP = 150.0
+SPEED = 4.0
+ATTACK_SPEED = 0.5
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_vtis0")
+
+[node name="CollisionDetection" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ect44")
+debug_color = Color(0, 0.643137, 0.298039, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_6m77h")
+animation = &"attack"
+autoplay = "idle"
+frame_progress = 0.481326
+metadata/_edit_lock_ = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="attackRange" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
+position = Vector2(-12, 0)
+shape = SubResource("RectangleShape2D_cs3lu")
+
+[node name="hurtSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_xvn1q")

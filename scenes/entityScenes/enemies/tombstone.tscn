@@ -1,40 +1,51 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgus8tr2ogmox"]
+[gd_scene load_steps=12 format=3 uid="uid://diahuthrc3qd0"]
 
-[ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_mgh5h"]
-[ext_resource type="Texture2D" uid="uid://bevqlol0wbw4u" path="res://assets/images/entity_images/enemy/tuition-fees.png" id="2_gub25"]
-[ext_resource type="AudioStream" uid="uid://blnbaswo08q4v" path="res://assets/audio/sound effects/enemyHurt.wav" id="3_ka7b0"]
-[ext_resource type="AudioStream" uid="uid://b1hc1rtwv3tqh" path="res://assets/audio/sound effects/death.wav" id="4_778c4"]
+[ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_ne62k"]
+[ext_resource type="Texture2D" uid="uid://c5crh16i8u1uq" path="res://assets/images/entity_images/enemy/tombstone-Sheet.png" id="2_bnpaf"]
+[ext_resource type="AudioStream" uid="uid://blnbaswo08q4v" path="res://assets/audio/sound effects/enemyHurt.wav" id="4_au20a"]
+[ext_resource type="AudioStream" uid="uid://b1hc1rtwv3tqh" path="res://assets/audio/sound effects/death.wav" id="5_pmmbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ect44"]
 size = Vector2(25.25, 27)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ka7b0"]
-atlas = ExtResource("2_gub25")
+[sub_resource type="AtlasTexture" id="AtlasTexture_au20a"]
+atlas = ExtResource("2_bnpaf")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_778c4"]
-atlas = ExtResource("2_gub25")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmmbu"]
+atlas = ExtResource("2_bnpaf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dslok"]
+atlas = ExtResource("2_bnpaf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ym6f"]
+atlas = ExtResource("2_bnpaf")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6m77h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ka7b0")
+"texture": SubResource("AtlasTexture_au20a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_778c4")
+"texture": SubResource("AtlasTexture_pmmbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dslok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ym6f")
 }],
 "loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ka7b0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_778c4")
+"texture": SubResource("AtlasTexture_au20a")
 }],
 "loop": true,
 "name": &"death",
@@ -42,10 +53,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ka7b0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_778c4")
+"texture": SubResource("AtlasTexture_au20a")
 }],
 "loop": true,
 "name": &"idle",
@@ -53,10 +61,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ka7b0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_778c4")
+"texture": SubResource("AtlasTexture_au20a")
 }],
 "loop": true,
 "name": &"move",
@@ -64,12 +69,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs3lu"]
-size = Vector2(19, 27)
+size = Vector2(28, 27)
 
 [node name="CharacterBody" type="CharacterBody2D" groups=["enemy"]]
 z_index = 500
 collision_layer = 6
-script = ExtResource("1_mgh5h")
+script = ExtResource("1_ne62k")
+CURRENT_HP = 200.0
+MAX_HP = 200.0
+SPEED = 4.0
+ATTACK_SPEED = 0.7
 
 [node name="CollisionDetection" type="CollisionShape2D" parent="."]
 visible = false
@@ -79,7 +88,7 @@ debug_color = Color(0, 0.64349, 0.299054, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_6m77h")
-animation = &"death"
+animation = &"move"
 autoplay = "idle"
 metadata/_edit_lock_ = true
 
@@ -94,15 +103,12 @@ visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_cs3lu")
 
 [node name="hurtSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_ka7b0")
+stream = ExtResource("4_au20a")
 
 [node name="deathSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_778c4")
-
-[connection signal="finished" from="deathSound" to="." method="_on_death_sound_finished"]
+stream = ExtResource("5_pmmbu")
