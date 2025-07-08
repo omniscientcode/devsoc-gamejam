@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4pjdojv3gi2s"]
 
 [ext_resource type="Script" uid="uid://b6rm218ciaw6m" path="res://entities/player/player.gd" id="1_abrql"]
-[ext_resource type="Texture2D" path="res://assets/images/misc/player.png" id="1_symyc"]
 [ext_resource type="Texture2D" uid="uid://b08hwjbxpqfb" path="res://assets/images/entity_images/player/player.png" id="2_sglur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
+size = Vector2(25.25, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_abrql"]
 animations = [{
@@ -21,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_symyc")
+"texture": ExtResource("2_sglur")
 }],
 "loop": true,
 "name": &"idle",
@@ -39,8 +41,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
 size = Vector2(56.5, 27)
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_abrql")
+
+[node name="CollisionDetection" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_abrql")
+debug_color = Color(0.967138, 0, 0.476152, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -54,6 +60,7 @@ autostart = true
 
 [node name="attackRange" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
 position = Vector2(4.75, 0)
