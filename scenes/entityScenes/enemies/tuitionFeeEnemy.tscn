@@ -66,6 +66,7 @@ size = Vector2(41.5, 27)
 
 [node name="CharacterBody" type="CharacterBody2D" groups=["enemy"]]
 z_index = 500
+collision_layer = 6
 script = ExtResource("1_mgh5h")
 
 [node name="CollisionDetection" type="CollisionShape2D" parent="."]
@@ -87,6 +88,7 @@ autostart = true
 
 [node name="attackRange" type="Area2D" parent="."]
 unique_name_in_owner = true
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attackRange"]
 shape = SubResource("RectangleShape2D_cs3lu")

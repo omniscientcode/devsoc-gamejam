@@ -1,9 +1,13 @@
 extends entity
 
 var moveVector = Vector2.RIGHT
+@onready var respawn_timer: Timer = %respawnTimer
 
 func _ready() -> void:
+	self.visible = true
 	_connect_processes()
+	MAX_HP = 1000.0
+	CURRENT_HP = MAX_HP
 	self.add_to_group("player")
 
 func _physics_process(delta: float) -> void:
@@ -23,8 +27,6 @@ func moveCharacter(delta):
 
 # Function that updates player stats
 func updateStats():
-	SPEED = 100
-	HP = 10000
 	attack_timer.wait_time = ATTACK_SPEED
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
@@ -35,3 +37,18 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if enemy_array.has(body):
 		enemy_array.erase(body)
+
+func death():
+	animated_sprite_2d.play("death")
+	GlobalVariables.player_dead = true
+	set_physics_process(false)
+	self.visible = false
+	respawn_timer.start()
+
+
+func _on_respawn_timer_timeout() -> void:
+	GlobalVariables.player_dead = false
+	self.visible = true
+	set_physics_process(true)
+	global_position = Vector2(0, -280)
+	CURRENT_HP = MAX_HP
