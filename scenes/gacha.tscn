@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b21beu5ie154h"]
+
+[ext_resource type="Texture2D" uid="uid://7pkqjletir20" path="res://assets/images/bg/door open-Sheet.png" id="1_5ckdq"]
+[ext_resource type="Script" uid="uid://fubl4oluvsa6" path="res://scripts/gacha system/gacha.gd" id="1_7y0v6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y0v6"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(0, 0, 180, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvtck"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(0, 0, 180, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6r8w"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(180, 0, 180, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjpq1"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(360, 0, 180, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt857"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(540, 0, 180, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73l0w"]
+atlas = ExtResource("1_5ckdq")
+region = Rect2(720, 0, 180, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5xra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y0v6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvtck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6r8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjpq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt857")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73l0w")
+}],
+"loop": true,
+"name": &"pulling",
+"speed": 5.0
+}]
+
+[node name="gacha" type="Node2D"]
+script = ExtResource("1_7y0v6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(120, -214)
+zoom = Vector2(3, 3)
+
+[node name="screenImage" type="AnimatedSprite2D" parent="."]
+position = Vector2(120, -213.5)
+scale = Vector2(1.33333, 1.58148)
+sprite_frames = SubResource("SpriteFrames_q5xra")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.281932
