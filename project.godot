@@ -13,17 +13,20 @@ config_version=5
 config/name="gamejam"
 run/main_scene="uid://dhkpc10i6g0rm"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cvycuwa7iepeq"
+<<<<<<<HEADrun/main_scene="uid://b4pjdojv3gi2s"
 
 [autoload]
 
 GlobalVariables="*res://globalVariables.gd"
-Save="*res://savefile/save.gd"
+Save="*res://scripts/savefile/save.gd"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/mode=2
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [input]
