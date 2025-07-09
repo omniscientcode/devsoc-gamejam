@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://de8c4656g8y5t"
-path="res://.godot/imported/Poco.ttf-462b905c8022e2f15cd1ffee81926ba8.fontdata"
+uid="uid://bts3be13egtip"
+path="res://.godot/imported/ConnectionII.otf-dbab2203442c47c4d9249e0c5f18670e.fontdata"
 
 [deps]
 
-source_file="res://scenes/Poco.ttf"
-dest_files=["res://.godot/imported/Poco.ttf-462b905c8022e2f15cd1ffee81926ba8.fontdata"]
+source_file="res://scenes/ui/ConnectionII.otf"
+dest_files=["res://.godot/imported/ConnectionII.otf-dbab2203442c47c4d9249e0c5f18670e.fontdata"]
 
 [params]
 

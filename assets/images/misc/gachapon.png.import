@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnwy1tm3vub0u"
-path="res://.godot/imported/default-profile-pic.png-38fc1e55f446496d4dfd757bad91095d.ctex"
+uid="uid://dfr143apfgeq7"
+path="res://.godot/imported/gachapon.png-f37f13d74de3bb1c43df3f67d3c1b758.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/default-profile-pic.png"
-dest_files=["res://.godot/imported/default-profile-pic.png-38fc1e55f446496d4dfd757bad91095d.ctex"]
+source_file="res://assets/images/misc/gachapon.png"
+dest_files=["res://.godot/imported/gachapon.png-f37f13d74de3bb1c43df3f67d3c1b758.ctex"]
 
 [params]
 
