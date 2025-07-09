@@ -3,6 +3,7 @@ extends Control
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer
 @onready var start_pause_button: Button = $Panel/startPauseButton
+@onready var start_pause_label: Label = $Panel/Label
 
 const WORK_TIME = 25 * 60
 const SHORT_BREAK = 5 * 60
@@ -15,7 +16,7 @@ var is_running = false
 var working = true
 
 func _ready() -> void:
-	start_pause_button.text = "Start"
+	start_pause_label.text = "Start"
 	update_timer_label()
 
 func _on_timer_timeout() -> void:
@@ -41,19 +42,19 @@ func start_break(duration: int) -> void:
 	time_remaining = duration
 	update_timer_label()
 	stop_timer()
-	start_pause_button.text = "Start"
+	start_pause_label.text = "Start"
 
 func start_work() -> void:
 	working = true
 	time_remaining = WORK_TIME
 	update_timer_label()
 	stop_timer()
-	start_pause_button.text = "Start"
+	start_pause_label.text = "Start"
 
 func start_timer() -> void:
 	is_running = true
+	start_pause_label.text = "Pause"
 	timer.start()
-	start_pause_button.text = "Pause"
 
 func stop_timer() -> void:
 	is_running = false
@@ -63,6 +64,6 @@ func stop_timer() -> void:
 func _on_start_pause_button_pressed() -> void:
 	if is_running:
 		stop_timer()
-		start_pause_button.text = "Start"
+		start_pause_label.text = "Start"
 	else:
 		start_timer()
