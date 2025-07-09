@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dijqsx5nnruoq"]
+[gd_scene load_steps=10 format=3 uid="uid://dijqsx5nnruoq"]
 
 [ext_resource type="Script" uid="uid://b55a8pxqdda84" path="res://scripts/ui/player_bar.gd" id="1_k30n3"]
 [ext_resource type="Texture2D" uid="uid://cnwy1tm3vub0u" path="res://scenes/default-profile-pic.png" id="1_mhn3p"]
@@ -29,6 +29,11 @@ corner_radius_bottom_left = 8
 font = ExtResource("4_k30n3")
 font_size = 48
 
+[sub_resource type="LabelSettings" id="LabelSettings_k30n3"]
+font = ExtResource("4_k30n3")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
 [node name="PlayerBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -56,14 +61,14 @@ text = "Player1111"
 label_settings = SubResource("LabelSettings_v54m0")
 
 [node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(208, 64)
+position = Vector2(544, 64)
 texture = ExtResource("3_csm56")
 
 [node name="Coins" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 232.0
+offset_left = 568.0
 offset_top = 40.0
-offset_right = 352.0
+offset_right = 688.0
 offset_bottom = 88.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xbjoh")
 
@@ -75,3 +80,12 @@ offset_right = 69.0
 offset_bottom = 42.0
 text = "100"
 label_settings = SubResource("LabelSettings_5b3aw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 24.0
+offset_right = 544.0
+offset_bottom = 82.0
+text = "Coins"
+label_settings = SubResource("LabelSettings_k30n3")

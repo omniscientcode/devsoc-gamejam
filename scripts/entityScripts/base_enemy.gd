@@ -23,6 +23,7 @@ func death():
 	GlobalVariables.enemies_defeated += 1
 	GlobalVariables.coins += COINS_ON_DEATH
 	animated_sprite_2d.play("death")
+	await get_tree().create_timer(0.8).timeout
 	call_deferred("queue_free")
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
