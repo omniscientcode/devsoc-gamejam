@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 class_name entity
 
-@export var CURRENT_HP = 100.0
-@export var MAX_HP = 100.0 
+@export var CURRENT_HP = 20.0
+@export var MAX_HP = 20.0 
 @export var SPEED = 80.0
 @export var ACCELERATION = 100
 @export var ATTACK = 20.0
@@ -51,16 +51,15 @@ func attackEnemies():
 
 func damage(damageTaken):
 	hurt_sound.play()
-	#var actualDamageTaken = max(damageTaken * (1 - DAMAGE_RESISTANCE), 0.0)
-	#CURRENT_HP -= actualDamageTaken
-	#if CURRENT_HP <= 0:
-	death()
+	var actualDamageTaken = max(damageTaken * (1 - DAMAGE_RESISTANCE), 0.0)
+	CURRENT_HP -= actualDamageTaken
+	if CURRENT_HP <= 0:
+		death()
 
 func death():
 	death_sound.play()
 	GlobalVariables.enemies_defeated += 1
 	animated_sprite_2d.play("death")
-	await get_tree().create_timer(3.0).timeout
 	call_deferred("queue_free")
 
 func _on_death_sound_finished() -> void:

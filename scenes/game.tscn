@@ -78,7 +78,7 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_lbhrr")]
-position = Vector2(968, 464)
+position = Vector2(720, 456)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
