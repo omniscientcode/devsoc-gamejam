@@ -2,7 +2,7 @@ extends Control
 
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer
-@onready var start_pause_button: Button = $startPauseButton
+@onready var start_pause_button: Button = $Panel/startPauseButton
 
 const WORK_TIME = 25 * 60
 const SHORT_BREAK = 5 * 60
