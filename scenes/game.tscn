@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhkpc10i6g0rm"]
+[gd_scene load_steps=18 format=3 uid="uid://dhkpc10i6g0rm"]
 
 [ext_resource type="PackedScene" uid="uid://cula4bmg5bhx" path="res://scenes/entityScenes/enemySpawner.tscn" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://dvc3gj6cewvlv" path="res://scripts/game.gd" id="1_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b4pjdojv3gi2s" path="res://scenes/entityScenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://cjkgxf7d2qvvk" path="res://assets/images/bg/unsw-background.png.png" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ceckbbc2tpj1h" path="res://scenes/ui/skill_box.tscn" id="4_lbhrr"]
@@ -41,6 +42,7 @@ font_size = 48
 font_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_vtaks")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(184, 456)
@@ -120,6 +122,7 @@ offset_right = 232.0
 offset_bottom = 1280.0
 
 [node name="Panel" type="Panel" parent="SkillsButton"]
+layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvuet")
@@ -130,6 +133,7 @@ scale = Vector2(0.15625, 0.15625)
 texture = ExtResource("6_0tnpc")
 
 [node name="SkillsButtonPress" type="Label" parent="SkillsButton"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 112.0
 offset_right = 128.0
@@ -152,11 +156,13 @@ offset_right = 432.0
 offset_bottom = 1280.0
 
 [node name="Panel" type="Panel" parent="QuestsButton"]
+layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvuet")
 
 [node name="Label" type="Label" parent="QuestsButton"]
+layout_mode = 0
 offset_top = 112.0
 offset_right = 144.0
 offset_bottom = 170.0
@@ -183,11 +189,13 @@ offset_right = 624.0
 offset_bottom = 1280.0
 
 [node name="Panel" type="Panel" parent="GachaButton"]
+layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kvuet")
 
 [node name="Label" type="Label" parent="GachaButton"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 112.0
 offset_right = 152.0

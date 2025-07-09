@@ -8,6 +8,7 @@ extends Node2D
 @onready var curr_anim = ""
 @onready var rollsound: AudioStreamPlayer = $rollsound
 @onready var finish_roll: AudioStreamPlayer = $finishRoll
+@onready var x_button: Button = $"Cancel/X button"
 
 # Pool of ids
 var gacha_pool := [
@@ -58,6 +59,10 @@ var gacha_pool := [
 func _ready() -> void:
 	color_rect.visible = false
 	texture_rect.custom_minimum_size = Vector2(250, 250)
+	x_button.pressed.connect(Callable(self, "_on_exit_button_pressed"))
+
+func _on_exit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
 func pull_item() -> Dictionary:
