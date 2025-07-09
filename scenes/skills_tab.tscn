@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh3m82ha5vowp"]
+
+[ext_resource type="PackedScene" uid="uid://ceckbbc2tpj1h" path="res://scenes/ui/skill_box.tscn" id="1_0w134"]
+
+[sub_resource type="GDScript" id="GDScript_iywne"]
+
+[node name="SkillsTab" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillBox" parent="." instance=ExtResource("1_0w134")]
+offset_left = 40.0
+offset_top = 608.0
+offset_right = 680.0
+offset_bottom = 768.0
+script = SubResource("GDScript_iywne")
