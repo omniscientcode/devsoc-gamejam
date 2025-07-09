@@ -30,11 +30,12 @@ func _on_gacha_button_pressed() -> void:
 func show_skills():
 	skills_tab.visible = true
 	quests_tab.visible = false
+	pomodoro_timer.visible = false
 
 func show_quests():
 	skills_tab.visible = false
 	quests_tab.visible = true
-
+	pomodoro_timer.visible = false
 	
 func _bg_change() -> void:
 	if GlobalVariables.boss_alive:
@@ -45,4 +46,5 @@ func _bg_change() -> void:
 		
 func _on_timer_button_pressed() -> void:
 	skills_tab.visible = false
+	quests_tab.visible = false
 	pomodoro_timer.visible = true

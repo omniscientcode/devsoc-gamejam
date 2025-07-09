@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhkpc10i6g0rm"]
+[gd_scene load_steps=21 format=3 uid="uid://dhkpc10i6g0rm"]
 
 [ext_resource type="PackedScene" uid="uid://cula4bmg5bhx" path="res://scenes/entityScenes/enemySpawner.tscn" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://dvc3gj6cewvlv" path="res://scripts/game.gd" id="1_vtaks"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dfr143apfgeq7" path="res://assets/images/misc/gachapon.png" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://j5hxs57pyrsy" path="res://assets/images/misc/timer.png" id="10_dinhu"]
 [ext_resource type="PackedScene" uid="uid://b0l2fdu6g2f3f" path="res://scenes/ui/pomodoroTimer.tscn" id="12_kvuet"]
+[ext_resource type="PackedScene" uid="uid://dgk8qovocihkm" path="res://scenes/quest_tab.tscn" id="13_kvuet"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
 distance = -2.0
@@ -256,3 +257,10 @@ offset_left = 256.0
 offset_top = 728.0
 offset_right = 424.0
 offset_bottom = 920.0
+
+[node name="QuestTab" parent="." instance=ExtResource("13_kvuet")]
+visible = false
+offset_left = 32.0
+offset_top = 600.0
+offset_right = 680.0
+offset_bottom = 776.0
