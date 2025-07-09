@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	if GlobalVariables.coins < cost:
-		pass
+		return
 	GlobalVariables.skill_level += 1
 	level_label.text = str(GlobalVariables.skill_level)
 	description.text = "DEALS " + str(GlobalVariables.skill_level * increment) + " (+ 10) DMG"
