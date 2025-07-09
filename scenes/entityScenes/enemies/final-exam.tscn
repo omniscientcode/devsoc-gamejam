@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://7rr3omcmmohm"]
 
-[ext_resource type="Script" uid="uid://b3n2lwkiasyfa" path="res://scripts/entityScripts/base_enemy.gd" id="1_22ypu"]
+[ext_resource type="Script" uid="uid://tjbyypc1pcho" path="res://scripts/entityScripts/boss_enemy.gd" id="1_rhbev"]
 [ext_resource type="AudioStream" uid="uid://b1hc1rtwv3tqh" path="res://assets/audio/sound effects/death.wav" id="2_rhbev"]
 [ext_resource type="AudioStream" uid="uid://blnbaswo08q4v" path="res://assets/audio/sound effects/enemyHurt.wav" id="3_ofh7o"]
 [ext_resource type="Texture2D" uid="uid://dai1402c7fw1v" path="res://assets/images/entity_images/enemy/final-exam.png" id="3_rhbev"]
@@ -68,10 +68,9 @@ size = Vector2(24, 27)
 
 [node name="CharacterBody" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 6
-script = ExtResource("1_22ypu")
-MAX_HP = 300.0
-SPEED = 15.0
-ATTACK_SPEED = 1.5
+script = ExtResource("1_rhbev")
+CURRENT_HP = 100.0
+MAX_HP = 100.0
 
 [node name="deathSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

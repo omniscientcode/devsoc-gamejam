@@ -1,22 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://cula4bmg5bhx"]
+[gd_scene load_steps=10 format=3 uid="uid://cula4bmg5bhx"]
 
 [ext_resource type="Script" uid="uid://dt5dek82md27g" path="res://scripts/entityScripts/entitySpawner/enemySpawner.gd" id="1_i8574"]
 [ext_resource type="Script" uid="uid://c0g036gocbhaj" path="res://scripts/entityScripts/entitySpawner/spawnInfo.gd" id="2_xk440"]
 [ext_resource type="PackedScene" uid="uid://cgus8tr2ogmox" path="res://scenes/entityScenes/enemies/tuitionFeeEnemy.tscn" id="3_vyy02"]
+[ext_resource type="PackedScene" uid="uid://7rr3omcmmohm" path="res://scenes/entityScenes/enemies/final-exam.tscn" id="4_15tab"]
+[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/ui/Poco.ttf" id="4_l158k"]
 
 [sub_resource type="Resource" id="Resource_vyy02"]
 script = ExtResource("2_xk440")
 NAME = "tuitionFeeEnemy"
 enemy = ExtResource("3_vyy02")
 ENEMY_NUMBER = 1
+SPAWN_DELAY = 3.0
+metadata/_custom_type_script = "uid://c0g036gocbhaj"
+
+[sub_resource type="Resource" id="Resource_l3jw3"]
+script = ExtResource("2_xk440")
+NAME = "finalexam"
+enemy = ExtResource("4_15tab")
+ENEMY_NUMBER = 1
 SPAWN_DELAY = 5.0
 metadata/_custom_type_script = "uid://c0g036gocbhaj"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15tab"]
+bg_color = Color(0.837798, 0.0379639, 0.0233062, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3jw3"]
+font = ExtResource("4_l158k")
+font_size = 48
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_i8574")
 spawns = Array[ExtResource("2_xk440")]([SubResource("Resource_vyy02")])
+bosses = Array[ExtResource("2_xk440")]([SubResource("Resource_l3jw3")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Boss Summon" type="Panel" parent="."]
+offset_left = -456.0
+offset_top = -168.0
+offset_right = -280.0
+offset_bottom = -88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_15tab")
+
+[node name="Label" type="Label" parent="Boss Summon"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 136.0
+offset_bottom = 58.0
+text = "BOSS"
+label_settings = SubResource("LabelSettings_l3jw3")
+
+[node name="BossButton" type="Button" parent="Boss Summon"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 176.0
+offset_bottom = 80.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
