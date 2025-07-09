@@ -137,7 +137,7 @@ offset_left = 56.0
 offset_top = 56.0
 offset_right = 100.0
 offset_bottom = 85.0
-text = "15C"
+text = "15c"
 label_settings = SubResource("LabelSettings_3e56t")
 
 [node name="Button" type="Button" parent="."]

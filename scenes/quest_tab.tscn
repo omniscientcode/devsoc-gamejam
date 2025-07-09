@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://hs5h3vxoik5j"]
+
+[ext_resource type="PackedScene" uid="uid://b4s502ajaobtu" path="res://scenes/ui/quest_box.tscn" id="1_wtu7f"]
+
+[node name="QuestTab" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestBox" parent="." instance=ExtResource("1_wtu7f")]
+offset_left = 40.0
+offset_top = 608.0
+offset_right = 680.0
+offset_bottom = 768.0
