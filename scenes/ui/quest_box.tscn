@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4s502ajaobtu"]
+
+[ext_resource type="Texture2D" uid="uid://7lij1dlpj0k1" path="res://assets/images/misc/quest.png" id="1_gt3eq"]
+[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/ui/Poco.ttf" id="1_l3wks"]
+[ext_resource type="Script" uid="uid://cbns5q25ajp3v" path="res://scripts/quests/questbox.gd" id="3_6igie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b6sl"]
+bg_color = Color(0.980392, 0.576471, 0.113725, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt3eq"]
+bg_color = Color(0.996078, 0.788235, 0.427451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6igie"]
+font = ExtResource("1_l3wks")
+font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3wks"]
+font = ExtResource("1_l3wks")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epqrv"]
+bg_color = Color(0, 0.65098, 0.32549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_y8eg7"]
+font = ExtResource("1_l3wks")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8v56s"]
+font = ExtResource("1_l3wks")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="QuestBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -80.0
+offset_right = 320.0
+offset_bottom = 80.0
+
+[node name="Questbox" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6b6sl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 72.0
+offset_right = 504.0
+offset_bottom = 132.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gt3eq")
+
+[node name="Description" type="Label" parent="Panel"]
+offset_left = 24.0
+offset_right = 384.0
+offset_bottom = 64.0
+text = "0/1
+"
+label_settings = SubResource("LabelSettings_6igie")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(72, 80)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_gt3eq")
+
+[node name="Skill Name" type="Label" parent="."]
+texture_filter = 1
+offset_left = 144.0
+offset_right = 298.0
+offset_bottom = 58.0
+text = "QUEST: GO TO UNI"
+label_settings = SubResource("LabelSettings_l3wks")
+
+[node name="Upgrade Button" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 56.0
+offset_right = 616.0
+offset_bottom = 116.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_epqrv")
+script = ExtResource("3_6igie")
+
+[node name="Label" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 35.3333
+text = "DONE
+"
+label_settings = SubResource("LabelSettings_y8eg7")
+
+[node name="Cost" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 53.0
+offset_bottom = 85.0
+text = "100c"
+label_settings = SubResource("LabelSettings_8v56s")
+
+[node name="Cost2" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 85.0
+label_settings = SubResource("LabelSettings_8v56s")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+layout_mode = 0
+offset_left = 528.0
+offset_top = 56.0
+offset_right = 616.0
+offset_bottom = 120.0
