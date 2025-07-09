@@ -1,31 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0l2fdu6g2f3f"]
+[gd_scene load_steps=6 format=3 uid="uid://b0l2fdu6g2f3f"]
 
 [ext_resource type="Script" uid="uid://ejoy7wh81cv0" path="res://scripts/ui/pomodoro_timer.gd" id="1_mcguy"]
+[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/ui/Poco.ttf" id="2_mj4hp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbv4q"]
+font = ExtResource("2_mj4hp")
+font_size = 96
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qbbq"]
+bg_color = Color(0.980392, 0.576471, 0.113725, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_2nib0"]
+font = ExtResource("2_mj4hp")
+font_size = 64
+font_color = Color(0, 0, 0, 1)
 
 [node name="PomodoroTimer" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -504.0
+offset_bottom = -1040.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mcguy")
-
-[node name="startPauseButton" type="Button" parent="."]
-layout_mode = 0
-offset_right = 49.0
-offset_bottom = 25.0
-text = "Start"
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_top = 30.0
-offset_right = 48.0
-offset_bottom = 53.0
+offset_left = 16.0
+offset_right = 200.0
+offset_bottom = 116.0
 text = "00:00"
+label_settings = SubResource("LabelSettings_lbv4q")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="startPauseButton" to="." method="_on_start_pause_button_pressed"]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 208.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3qbbq")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 208.0
+offset_bottom = 88.0
+text = "START"
+label_settings = SubResource("LabelSettings_2nib0")
+
+[node name="startPauseButton" type="Button" parent="Panel"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 88.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Panel/startPauseButton" to="." method="_on_start_pause_button_pressed"]
