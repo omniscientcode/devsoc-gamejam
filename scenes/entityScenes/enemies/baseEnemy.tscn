@@ -67,3 +67,7 @@ shape = SubResource("RectangleShape2D_cs3lu")
 [node name="hurtSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_6g5m4")
+
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0

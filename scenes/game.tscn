@@ -27,8 +27,7 @@ border_color = Color(0.980392, 0.576471, 0.113725, 1)
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(144, 456)
-scale = Vector2(6, 6)
+position = Vector2(184, 456)
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(344, 568)
@@ -38,6 +37,7 @@ position = Vector2(0, -24)
 shape = SubResource("WorldBoundaryShape2D_yqjtg")
 
 [node name="Unsw-background_png" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.678431)
 z_index = -1
 position = Vector2(360, 352)
 scale = Vector2(6, 5.33333)
