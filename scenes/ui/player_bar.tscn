@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dijqsx5nnruoq"]
 
 [ext_resource type="Script" uid="uid://b55a8pxqdda84" path="res://scripts/ui/player_bar.gd" id="1_k30n3"]
-[ext_resource type="Texture2D" uid="uid://cnwy1tm3vub0u" path="res://scenes/default-profile-pic.png" id="1_mhn3p"]
+[ext_resource type="Texture2D" uid="uid://cnwy1tm3vub0u" path="res://scenes/ui/default-profile-pic.png" id="1_mhn3p"]
 [ext_resource type="Texture2D" uid="uid://cvycuwa7iepeq" path="res://assets/images/misc/coin.png" id="3_csm56"]
-[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/Poco.ttf" id="4_k30n3"]
+[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/ui/Poco.ttf" id="4_k30n3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijebw"]
 bg_color = Color(0.996078, 0.788235, 0.427451, 1)

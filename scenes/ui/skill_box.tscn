@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ceckbbc2tpj1h"]
 
 [ext_resource type="Texture2D" uid="uid://c0qvanxqi8ehu" path="res://assets/images/misc/sword-icon.png" id="1_5j0vk"]
-[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/Poco.ttf" id="1_o1uov"]
+[ext_resource type="FontFile" uid="uid://de8c4656g8y5t" path="res://scenes/ui/Poco.ttf" id="1_o1uov"]
 [ext_resource type="Script" uid="uid://jmfqqxdbjbo5" path="res://scripts/ui/skillbox.gd" id="3_o1uov"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6byrh"]
